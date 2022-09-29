@@ -2,8 +2,9 @@ name: 'GitHub Actions Weather Bot'
 
 on:
   push:
+    branches: [ main ]
   schedule:
-    - cron: '10 12 * * *'
+    - cron: '0 21,13 * * *'
 
 jobs:
   bot:
@@ -14,7 +15,7 @@ jobs:
       - name: 'Get Weather'
         run: bash ./weather.sh
       - name: 'Get Date'
-        run: echo "REPORT_DATE=$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+        run: echo "REPORT_DATE=$(TZ=':Asia/quanzhou' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
