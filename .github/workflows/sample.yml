@@ -15,7 +15,7 @@ jobs:
       - name: 'Get Weather'
         run: bash ./weather.sh
       - name: 'Get Date'
-        run: echo "REPORT_DATE=$(TZ=':Asia/quanzhou' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
+        run: echo "REPORT_DATE=$(TZ=':Asia/shanghai' date '+%Y-%m-%d %T')" >> $GITHUB_ENV
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
@@ -26,5 +26,5 @@ jobs:
           subject: 泉州天气日报  当前UTC时间： (${{env.REPORT_DATE}})
           body: file://result.html
           to: qh@codeqihan.com
-          from: GitHub Actions
+          from: 天气日报发送系统
           content_type: text/html
