@@ -19,12 +19,12 @@ jobs:
       - name: 'Send mail'
         uses: dawidd6/action-send-mail@master
         with:
-          server_address: smtp.feishu.cn
+          server_address: smtp.aliyun.com
           server_port: 465
           username: ${{ secrets.MAILUSERNAME }}
           password: ${{ secrets.MAILPASSWORD }}
-          subject: 石狮天气日报  当前时间： (${{env.REPORT_DATE}})
+          subject: 宜昌天气  当前时间： (${{env.REPORT_DATE}})
           body: file://result.html
-          to: qh@codeqihan.com
+          to: lbnyydd@dingtalk.com
           from: 天气日报发送系统
           content_type: text/html
